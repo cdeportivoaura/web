@@ -1,0 +1,18 @@
+.profile {
+  color: var(--text-color);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+
+  > .image {
+    > img {
+      width: 100%;
+    }
+  }
+
+  > .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // grid-template-rows: 26px;
+  }
+}

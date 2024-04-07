@@ -1,0 +1,164 @@
+.modal {
+  position: fixed;
+  z-index: 100;
+  color: var(--text-color);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+
+  > .content {
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    z-index: 100;
+    border: 1px solid var(--navbar-bg-color);
+    background-color: var(--bg-color);
+    border-radius: 5px;
+
+    > .body {
+      padding: 10px;
+
+      > .button {
+        margin-right: 5px;
+      }
+
+      > .text-link {
+        cursor: pointer;
+        text-align: center;
+        display: block;
+        margin: 10px 0;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        transition: color 0.3s;
+        pointer-events: none;
+        > a {
+          color: var(--accent-faded);
+          transition: color 0.3s;
+          pointer-events: auto;
+          &:hover {
+            color: var(--accent);
+          }
+        }
+      }
+
+      > .title {
+        text-align: center;
+        display: block;
+        margin: 0;
+        padding: 5px 0;
+      }
+
+      > .text {
+        text-align: center;
+        color: var(--text-color);
+      }
+
+      > .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+      }
+
+      .textarea {
+        font-family: var(--font-family);
+        max-width: calc(100% - 22px);
+        min-width: calc(100% - 22px);
+        margin-top: 5px;
+        background-color: var(--input-bg);
+        border-radius: 13px;
+        border: 1px solid;
+        border-color: transparent;
+        padding: 5px 10px;
+        transition: border-color 0.5s, color 0.5s;
+        color: var(--input-faded);
+        &:focus-visible, &:focus, &:active {
+          border-color: var(--accent);
+          outline: none;
+          color: var(--text-color);
+        }
+      }
+
+      .field {
+        display: grid;
+        grid-template-rows: repeat(2, 26px);
+        margin-bottom: 10px;
+      }
+
+      .single-field {
+        display: grid;
+        grid-template-rows: 26px;
+        margin-bottom: 10px;
+      }
+
+      label {
+        padding-left: 10px;
+      }
+
+      input {
+        background-color: var(--input-bg);
+        border-radius: 13px;
+        border: 1px solid;
+        border-color: transparent;
+        padding: 5px 10px;
+        transition: border-color 0.5s, color 0.5s;
+        color: var(--input-faded);
+        &:focus-visible, &:focus, &:active {
+          border-color: var(--accent);
+          outline: none;
+          color: var(--text-color);
+        }
+      }
+
+      .dropdown {
+        padding: 0;
+        > .dropdown-button {
+          width: 100%;
+          background-color: var(--input-bg);
+          border-radius: 13px;
+          border: 1px solid;
+          border-color: transparent;
+          padding: 5px 10px;
+          transition: border-color 0.5s, color 0.5s;
+          color: var(--input-faded);
+          &:focus-visible, &:focus, &:active {
+            border-color: var(--accent);
+            outline: none;
+            color: var(--text-color);
+          }
+
+          > .dropdown-icon {
+            position: absolute;
+            right: 10px;
+            top: 2px;
+          }
+        }
+      }
+      
+      > .footer {
+        text-align: center;
+        margin-top: 5px;
+        > .button {
+          margin: 0 3px
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 951px) {
+  .modal {  
+    > .content {
+      > .body {
+        > .form-row {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+      }
+    }
+  }
+}

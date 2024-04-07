@@ -1,0 +1,138 @@
+.login {
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+
+  > .content {
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+    left: 25%;
+    width: calc(50% - 20px);
+    top: 10%;
+    z-index: 100;
+    border: 1px solid var(--navbar-bg-color);
+    background-color: var(--bg-color);
+    border-radius: 5px;
+
+    > .logo {
+      margin-bottom: 10px;
+      justify-content: center;
+    }
+
+    > .subtitle {
+      color: var(--text-color);
+      margin: 5px 0 10px 0;
+      font-size: 1rem;
+    }
+
+    > .login-buttons {
+      margin-top: 10px;
+
+      > .button {
+        margin: 0 3px;
+      }
+    }
+
+    > .text-link {
+      cursor: pointer;
+      display: block;
+      margin: 10px 0;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      > a {
+        color: var(--accent-faded);
+        transition: color 0.3s;
+        &:hover {
+          color: var(--accent);
+        }
+      }
+    }
+
+    .field {
+      display: flex;
+      background-color: var(--input-bg);
+      border-radius: 13px;
+      border: 1px solid var(--text-color-faded);
+      transition: border-color 0.5s, color 0.5s;
+      color: var(--text-color-faded);
+      margin-bottom: 10px;
+
+      > span {
+        padding: 5px;
+        border-right: 1px solid var(--text-color-faded);
+        transition: border-color 0.5s;
+      }
+
+      .placeholder {
+        font-size: 0.8rem;
+        text-wrap: nowrap;
+        align-self: center;
+      }
+
+      label {
+        padding: 7px 5px;
+      }
+
+      input {
+        background-color: transparent;
+        border-radius: 13px;
+        width: 100%;
+        border: 1px solid;
+        border-color: transparent;
+        color: var(--text-color);
+        padding: 5px;
+        transition: color 0.5s;
+        &:focus-visible, &:focus, &:active {
+          outline: none;
+          color: var(--accent);
+        }
+
+        &[type="radio"] {
+          width: 3%;
+          margin: 0 0 0 2px;
+        }
+      }
+      &:focus-within {
+        border-color: var(--accent);
+        outline: none;
+        color: var(--accent);
+        > span {
+          border-color: var(--accent);
+        }
+      }
+
+      &.warning {
+        border: 1px solid red;
+        color: red;
+        > span {
+          border-right: 1px solid red;
+          color: red;
+        }
+        input {
+          color: red;
+        }
+      }
+    }
+
+    .text-warning {
+      color: red;
+      text-align: left;
+      margin: -7px 0 10px 40px;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 951px) {
+  .login {
+    > .content {
+      left: 10%;
+      width: calc(80% - 20px);
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.calendar {
+  color: var(--text-color);
+  height: calc(100vh - 86px - 20px);
+
+  .hidden-info {
+    background-color: var(--bg-color);
+  }
+
+  .fc {
+    font-size: 16px;
+
+    .fc-button {
+      padding: 3px 5px;
+    }
+
+    .fc-button-primary:not(:disabled).fc-button-active,
+    .fc-button-primary:not(:disabled):active,
+    .fc-button-primary:disabled {
+      background-color: var(--bg-button);
+      color: var(--text-color);
+      border-color: var(--accent);
+      opacity: 0.65;
+    }
+
+    .fc-button-primary:not(:disabled) {
+      background-color: var(--bg-button);
+      color: var(--text-color);
+      border-color: var(--accent);
+      transition: color 0.3s, background-color 0.3s;
+      &:hover {
+        color: var(--accent);
+        background-color: var(--bg-button-hover);
+      }
+    }
+
+    .fc-toolbar.fc-header-toolbar {
+      margin-bottom: 10px;
+    }
+
+    .fc-toolbar-title {
+      font-size: 1.4rem;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .fc-daygrid-more-link {
+      z-index: inherit;
+    }
+  }
+
+  .fc-daygrid-day-frame {
+    overflow: hidden;
+  }
+
+  .fc-daygrid-event {
+    z-index: inherit !important;
+  }
+
+
+  .calendar-event {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+
+    &.locked-event {
+      color: var(--text-color-faded);
+    }
+    > .inline-event {
+      margin-left: 5px;
+    }
+
+    > .accent {
+      font-weight: bold;
+    }
+
+    > .hidden-info {
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      background-color: var(--bg-color);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 3px;
+      > span {
+        display: block;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  .fc-timegrid-event-harness {
+    z-index: initial !important;
+  }
+
+  .fc-event-main {
+    z-index: initial !important;
+  }
+}
+
+@media only screen and (max-width: 951px) {
+  .calendar {
+    .fc {
+      .fc-toolbar-title {
+        font-size: 1rem;
+      }
+      .fc-button {
+        padding: 2px 3px;
+        font-size: 12px;
+        .fc-icon {
+        }
+      }
+    }
+  }
+}

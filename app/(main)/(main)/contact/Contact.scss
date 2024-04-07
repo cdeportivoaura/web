@@ -1,0 +1,97 @@
+.contact {
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--text-color-faded);
+  background-color: var(--bg-details);
+  margin-left: 10%;
+
+  > p {
+    color: var(--text-color);
+  }
+
+  .buttons {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .field {
+    display: flex;
+    background-color: var(--input-bg);
+    border-radius: 13px;
+    border: 1px solid var(--text-color-faded);
+    transition: border-color 0.5s, color 0.5s;
+    color: var(--text-color-faded);
+    margin-bottom: 10px;
+
+    > span {
+      padding: 5px;
+      border-right: 1px solid var(--text-color-faded);
+      transition: border-color 0.5s;
+    }
+
+    label {
+      padding: 7px 5px;
+    }
+
+    input {
+      background-color: transparent;
+      border-radius: 13px;
+      width: 100%;
+      border: 1px solid;
+      border-color: transparent;
+      color: var(--text-color);
+      padding: 5px;
+      transition: color 0.5s;
+      &:focus-visible, &:focus, &:active {
+        outline: none;
+        color: var(--accent);
+      }
+
+      &[type="radio"] {
+        width: 3%;
+        margin: 0 0 0 2px;
+      }
+    }
+    &:focus-within {
+      border-color: var(--accent);
+      outline: none;
+      color: var(--accent);
+      > span {
+        border-color: var(--accent);
+      }
+    }
+
+    &.warning {
+      border: 1px solid red;
+      color: red;
+      > span {
+        border-right: 1px solid red;
+        color: red;
+      }
+      input {
+        color: red;
+      }
+    }
+  }
+
+  .textarea {
+    display: flex;
+    font-family: var(--font-family);
+    margin: -1;
+    max-width: calc(100% - 22px);
+    min-width: calc(100% - 22px);
+    background-color: var(--input-bg);
+    border-radius: 13px;
+    border: 1px solid;
+    border-color: var(--text-color-faded);
+    padding: 5px 10px;
+    transition: border-color 0.5s, color 0.5s;
+    color: var(--input-faded);
+    &:focus-visible, &:focus, &:active {
+      border-color: var(--accent);
+      outline: none;
+      color: var(--text-color);
+    }
+  }
+}

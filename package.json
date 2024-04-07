@@ -9,12 +9,32 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.12",
+    "@fullcalendar/core": "^6.1.11",
+    "@fullcalendar/daygrid": "^6.1.11",
+    "@fullcalendar/interaction": "^6.1.11",
+    "@fullcalendar/react": "^6.1.11",
+    "@fullcalendar/timegrid": "^6.1.11",
+    "bcrypt": "^5.1.1",
+    "framer-motion": "^11.0.24",
+    "jose": "^5.2.3",
+    "jwt-decode": "^4.0.0",
+    "material-icons": "^1.13.12",
+    "mongoose": "^8.2.4",
+    "next": "14.1.4",
+    "nodemailer": "^6.9.13",
+    "path": "^0.12.7",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.4"
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "sass": "^1.72.0"
   },
   "devDependencies": {
+    "@types/node": "20.12.5",
+    "@types/react": "18.2.74",
     "eslint": "^8",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-next": "14.1.4",
+    "typescript": "5.4.4"
   }
 }

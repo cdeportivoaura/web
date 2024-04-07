@@ -1,0 +1,2 @@
+export const MAX_ITEMS_PER_PAGE = process.env.MAX_ITEMS_PER_PAGE ? parseInt(process.env.MAX_ITEMS_PER_PAGE) : 10
+export const MAX_IMAGES_PER_PAGE = process.env.MAX_IMAGES_PER_PAGE ? parseInt(process.env.MAX_IMAGES_PER_PAGE) : 20

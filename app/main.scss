@@ -1,0 +1,142 @@
+@import "@fontsource/roboto";
+
+.dark {
+  --bg-color: rgb(26, 26, 46);
+  --bg-color-transparent: rgba(26,26,46,0.5);
+  --bg-details: rgb(18, 18, 43);
+  --navbar-bg-color: rgba(15, 52, 96, 1);
+  --navbar-toggle-color: rgba(15, 52, 96, 0.92);
+  --bg-button: rgba(13, 69, 69, 0.3);
+  --bg-button-hover: rgba(13, 69, 69, 1);
+  --bg-color-active: var(--bg-color);
+  --text-color: rgba(255, 255, 255, 1);
+  --text-color-faded: rgba(255, 255, 255, 0.5);
+  --accent: rgba(233, 69, 96, 1);
+  --accent-faded: rgba(156, 58, 74, 0.644);
+  --input-faded: rgb(201, 66, 88);
+  --input-bg: rgba(0, 0, 0, 0.3);
+  --fc-border-color: rgba(50, 50, 50, 1);
+  --fc-today-bg-color: rgba(54, 0, 0, 0.3);
+  --fc-event-bg-color: rgba(233, 69, 96, 0.514);
+  --logo-air-color: #F8971C;
+  --logo-bolt-color: var(--accent);
+  --logo-air2-color: var(--accent-faded);
+  --logo-brightness-color: var(--noirlab-blue);
+  --logo-body-color: var(--text-color-faded);
+
+  color-scheme: dark;
+}
+
+.light {
+  --bg-color: rgba(235, 235, 235, 1);
+  --bg-color-transparent: rgba(235,235,235,0.5);
+  --bg-details: rgb(250, 250, 250);
+  --navbar-bg-color: rgb(220, 220, 220);
+  --navbar-toggle-color: rgba(220, 220, 220, 0.92);
+  --bg-button: rgba(191, 255, 255, 0.3);
+  --bg-button-hover: rgba(191, 255, 255, 1);
+  --bg-color-active: var(--bg-color);
+  --text-color: #000;
+  --text-color-faded: rgba(0, 0, 0, 0.7);
+  --accent: rgba(0, 153, 153, 1);
+  --accent-faded: rgba(33, 124, 124, 0.616);
+  --input-faded: rgb(45, 160, 160);
+  --input-bg: rgba(0, 0, 0, 0.103);
+  --fc-border-color: rgba(210, 210, 210, 1);
+  --fc-today-bg-color: rgba(230, 0, 0, 0.3);
+  --fc-event-bg-color: rgba(0, 153, 153, 0.514);
+  --logo-air-color: #F8971C;
+  --logo-bolt-color: var(--accent);
+  --logo-air2-color: var(--accent-faded);
+  --logo-brightness-color: var(--noirlab-blue);
+  --logo-body-color: var(--text-color-faded);
+
+  color-scheme: light;
+}
+
+#root {
+  // position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+}
+
+body {
+  --font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  margin: 0;
+  --noirlab-blue: rgb(0,105,169);
+  --noirlab-grey: rgb(110,110,115);
+  --noirlab-red: rgb(238,75,75);
+  --fc-page-bg-color: var(--bg-color);
+}
+
+.main {
+  padding: 10px;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 951px) {
+  .main {
+    overflow-y: auto;
+  }
+}
+
+.button {
+  padding: 5px 10px;
+  border: 1px solid var(--accent-faded);
+  border-color: var(--accent-faded);
+  color: var(--text-color);
+  border-radius: 5px;
+  background: linear-gradient(transparent, var(--accent-faded));
+  transition: color 0.5s, border-color 0.5s;
+  cursor: pointer;
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  &:disabled {
+    background: none;
+    background-color: var(--bg-color);
+
+    &:hover {
+      border-color: var(--accent-faded);
+      color: var(--text-color);
+    }
+  }
+
+  > .button-icon {
+    vertical-align: -4px;
+    font-size: 1.1rem;
+    margin-right: 5px;
+  }
+}
+
+.fc-button, .fc-button-primary, .fc-button-primary:not(:disabled) {
+  padding: 5px 10px;
+  border: 1px solid var(--accent-faded);
+  border-color: var(--accent-faded) !important;
+  color: var(--text-color);
+  border-radius: 5px;
+  background: linear-gradient(transparent, var(--accent-faded));
+  background-color: transparent;
+  transition: color 0.5s, border-color 0.5s;
+  cursor: pointer;
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent) !important;
+    background-color: transparent !important;
+  }
+}
+
+.fc .fc-daygrid-event-harness {
+  z-index: initial;
+}
+
+.fc .fc-daygrid-event {
+  z-index: initial;
+}
