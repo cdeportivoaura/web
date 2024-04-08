@@ -7,7 +7,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   overflow-y: auto;
 
-  > .content {
+  >.content {
     position: absolute;
     text-align: center;
     padding: 10px;
@@ -19,38 +19,48 @@
     background-color: var(--bg-color);
     border-radius: 5px;
 
-    > .logo {
+    >.logo {
       margin-bottom: 10px;
       justify-content: center;
     }
 
-    > .subtitle {
+    >.subtitle {
       color: var(--text-color);
       margin: 5px 0 10px 0;
       font-size: 1rem;
     }
 
-    > .login-buttons {
+    >.login-buttons {
       margin-top: 10px;
 
-      > .button {
+      >.button {
         margin: 0 3px;
       }
     }
 
-    > .text-link {
+    >.text-link {
       cursor: pointer;
       display: block;
       margin: 10px 0;
       font-size: 0.9rem;
       color: var(--text-color);
-      > a {
+
+      >a {
         color: var(--accent-faded);
         transition: color 0.3s;
+
         &:hover {
           color: var(--accent);
         }
       }
+    }
+
+    >.text-danger {
+      cursor: pointer;
+      display: block;
+      margin: 10px 0;
+      font-size: 0.9rem;
+      color: red;
     }
 
     .field {
@@ -62,7 +72,7 @@
       color: var(--text-color-faded);
       margin-bottom: 10px;
 
-      > span {
+      >span {
         padding: 5px;
         border-right: 1px solid var(--text-color-faded);
         transition: border-color 0.5s;
@@ -87,7 +97,10 @@
         color: var(--text-color);
         padding: 5px;
         transition: color 0.5s;
-        &:focus-visible, &:focus, &:active {
+
+        &:focus-visible,
+        &:focus,
+        &:active {
           outline: none;
           color: var(--accent);
         }
@@ -97,11 +110,13 @@
           margin: 0 0 0 2px;
         }
       }
+
       &:focus-within {
         border-color: var(--accent);
         outline: none;
         color: var(--accent);
-        > span {
+
+        >span {
           border-color: var(--accent);
         }
       }
@@ -109,10 +124,12 @@
       &.warning {
         border: 1px solid red;
         color: red;
-        > span {
+
+        >span {
           border-right: 1px solid red;
           color: red;
         }
+
         input {
           color: red;
         }
@@ -130,7 +147,7 @@
 
 @media only screen and (max-width: 951px) {
   .login {
-    > .content {
+    >.content {
       left: 10%;
       width: calc(80% - 20px);
     }

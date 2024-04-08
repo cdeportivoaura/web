@@ -13,9 +13,11 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   function handleSubmit() {
     setLoading(true)
+    setError("")
     login(email, password)
       .then(isLogged => {
         if (isLogged) {
@@ -27,7 +29,7 @@ export default function Login() {
           // user experience.)
           router.back()
         } else {
-          console.log(JSON.stringify({ severity: 'error', summary: 'Login Error', detail: 'Wrong credentials' }))
+          setError("Wrong credentials or user not found")
         }
         setLoading(false)
       })
@@ -54,6 +56,7 @@ export default function Login() {
           <span className="material-icons button-icon">password</span>
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
+        {error && <span className="text-danger">Credenciales incorrectas</span>}
         <div className="login-buttons">
           <button className="button" onClick={handleSubmit}>
             <span className="material-icons button-icon">login</span>
