@@ -39,9 +39,7 @@ function Profile() {
         <img
           src={image}
           alt={user.first_name}
-        // width={300}
-        // height={300}
-        // onError={(e)=>{e.target.onerror = null; e.target.src=`/img/users/example.jpg`}}
+          onError={(e) => { e.target.onerror = null; e.target.src = `/example-M.jpg` }}
         />
       </div>
       <div className="info">

@@ -111,7 +111,7 @@ export default function Register() {
     if ('error' in user) {
       alert(user.error)
     } else {
-      router.push('/login')
+      router.push('/')
     }
   }
 
