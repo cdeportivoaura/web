@@ -20,13 +20,18 @@ function Profile() {
 
   useEffect(() => {
     getImage().then(data => {
-      if (data.image)
-        setImage(`data:${data.image.contentType};base64,${Buffer.from(data.image.data.data.reduce((data, byte) => data + String.fromCharCode(byte), ''), 'ascii').toString('base64')}`)
+      if (data.image) {
+        if ("contentType" in data.image && "data" in data.image) {
+          setImage(`data:${data.image.contentType};base64,${Buffer.from(data.image.data.data.reduce((data, byte) => data + String.fromCharCode(byte), ''), 'ascii').toString('base64')}`)
+        }
+      }
     })
   }, [getImage])
 
   if (!user)
     return (<h1>Cargando perfil...</h1>)
+
+  console.log(user)
 
   return (
     <div className="profile">
@@ -41,15 +46,15 @@ function Profile() {
       </div>
       <div className="info">
         <span>Nombres:</span>
-        <span>{user.first_name}</span>
+        <span>{user.user.first_name}</span>
         <span>Apellidos:</span>
-        <span>{user.last_name}</span>
+        <span>{user.user.last_name}</span>
         <span>Correo:</span>
-        <span>{user.email}</span>
+        <span>{user.user.email}</span>
         <span>Fecha de nacimiento:</span>
-        <span>{new Date(user.birthday).toLocaleDateString()}</span>
+        <span>{new Date(user.user.birthday).toLocaleDateString()}</span>
         <span>Miembro del club deportivo:</span>
-        <span>{user.subscribed ? "Sí" : "No"}</span>
+        <span>{user.user.subscribed ? "Sí" : "No"}</span>
       </div>
     </div>
   )
