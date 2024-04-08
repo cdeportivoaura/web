@@ -65,7 +65,7 @@ export default function Sports() {
     } else {
       setCoordinator(undefined)
     }
-  }, [openSport])
+  }, [openSport, sports])
 
   let sportButtons = []
   sports.map((sport, index) => {

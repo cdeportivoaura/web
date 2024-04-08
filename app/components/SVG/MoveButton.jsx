@@ -17,7 +17,7 @@ export default function MoveButton({ sport, openSport, setOpenSport, children })
           duration: 1
         }
       },
-      hidden: { opacity: 1, x: 0, y: 0},
+      hidden: { opacity: 1, x: 0, y: 0 },
       none: { opacity: 0, x: 0, y: 0 }
     })
   }, [])
@@ -30,7 +30,7 @@ export default function MoveButton({ sport, openSport, setOpenSport, children })
     } else {
       setAnimate("none")
     }
-  }, [openSport])
+  }, [openSport, sport])
 
   return (
     <motion.div

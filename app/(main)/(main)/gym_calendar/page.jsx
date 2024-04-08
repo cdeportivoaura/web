@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef, useContext } from 'react'
+import { useEffect, useState, useRef, useContext, Suspense } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -18,7 +18,15 @@ import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 
 
-export default function Calendar() {
+export default function Page() {
+  return (
+    <Suspense fallback={<h1>Cargando calendario...</h1>}>
+      <GymCalendar />
+    </Suspense>
+  )
+}
+
+function GymCalendar() {
   const searchParams = useSearchParams()
   const viewType = searchParams.get('viewType')
   const date = searchParams.get('date')

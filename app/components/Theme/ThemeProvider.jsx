@@ -23,7 +23,7 @@ export default function ThemeProvider({ children }) {
     if (isUserLoggedIn) {
       setTheme(user.user.theme)
     }
-  }, [user])
+  }, [user, isUserLoggedIn])
 
   useEffect(() => {
     document.body.classList.value = theme;

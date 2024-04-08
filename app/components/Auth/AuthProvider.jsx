@@ -72,7 +72,7 @@ export default function AuthProvider({ children }) {
     if (isUserLoggedIn) {
       return await Authentication.getImage(user)
     } else {
-      return `/img/users/example-${user.gender}.jpg`
+      return `/example-M.jpg`
     }
   }
 
@@ -80,7 +80,7 @@ export default function AuthProvider({ children }) {
     if (isUserLoggedIn) {
       isTokenValid()
     }
-  }, [pathname, children, user])
+  }, [pathname, children, user, isUserLoggedIn, isTokenValid])
 
   let value = {
     user,
