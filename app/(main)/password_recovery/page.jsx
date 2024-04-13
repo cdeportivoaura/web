@@ -1,24 +1,27 @@
+"use client"
+
 import { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { AuthContext } from "../Auth/AuthProvider"
-import Modal from "../Modal/Modal"
-import Logo from "../Logo/Logo"
+import { AuthContext } from "@/app/components/Auth/AuthProvider";
+import Modal from "@/app/components/Modal/Modal"
+import Logo from "@/app/components/Logo/Logo"
+import "../login/Login.scss"
 
 function validateEmail(email) {
   return Boolean(String(email)
-  .toLowerCase()
-  .match(
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  ))
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    ))
 }
 
-export function PasswordRecovery() {
+export default function Page() {
   const [email, setEmail] = useState({ email: "", warning: false })
   const [loading, setLoading] = useState(false)
   const [openModal, setOpenModal] = useState(false)
-  let navigate = useNavigate()
-  let auth = useContext(AuthContext)
+  const router = useRouter()
+  const { passwordRecovery } = useContext(AuthContext)
 
   function checkEmail(email) {
     setEmail({
@@ -29,15 +32,15 @@ export function PasswordRecovery() {
 
   function handleSubmit() {
     setLoading(true)
-    auth.passwordRecovery(email.email)
-    .then(updated => {
-      if (updated[0]) {
-        setLoading(false)
-        setOpenModal(true)
-      } else {
-        console.log(updated[1])
-      }
-    })
+    passwordRecovery(email.email)
+      .then(updated => {
+        if (updated[0]) {
+          setLoading(false)
+          setOpenModal(true)
+        } else {
+          console.log(updated[1])
+        }
+      })
   }
 
   return (
@@ -77,7 +80,7 @@ export function PasswordRecovery() {
       <Modal isOpen={openModal}>
         <p className="text">Hemos enviado un correo con las instrucciones que debes seguir para recuperar tu contaseña.</p>
         <div className="text">
-          <button className="button dismiss" onClick={() => navigate("/")}>
+          <button className="button dismiss" onClick={() => router.push("/")}>
             <span className="material-icons button-icon">home</span>
             Ir al inicio
           </button>

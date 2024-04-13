@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 50% 99%)`,
+    clipPath: `circle(${height * 2 + 200}px at 15px 15px)`,
     transition: {
       type: "spring",
       stiffness: 20,
@@ -19,7 +19,7 @@ const sidebar = {
     }
   }),
   closed: {
-    clipPath: "circle(30px at 50% 99%)",
+    clipPath: "circle(30px at 15px 15px)",
     transition: {
       delay: 0.5,
       type: "spring",

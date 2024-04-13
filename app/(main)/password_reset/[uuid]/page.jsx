@@ -1,23 +1,25 @@
+"use client"
+
 import { useContext, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { AuthContext } from "../Auth/AuthProvider"
-import Logo from "../Logo/Logo"
+import { AuthContext } from "@/app/components/Auth/AuthProvider"
+import Logo from "@/app/components/Logo/Logo"
+import "../../login/Login.scss"
 
 function validatePassword(password) {
   return Boolean(String(password)
-  .match(
-    /.{6,}/
-  ))
+    .match(
+      /.{6,}/
+    ))
 }
 
-export function PasswordReset() {
-  const { uuid } = useParams()
-  let navigate = useNavigate()
-  const [password, setPassword] = useState({pass: "", warning: false})
-  const [passwordConfirm, setPasswordConfirm] = useState({pass: "", warning: false})
+export default function Page({ params }) {
+  const router = useRouter()
+  const [password, setPassword] = useState({ pass: "", warning: false })
+  const [passwordConfirm, setPasswordConfirm] = useState({ pass: "", warning: false })
   const [loading, setLoading] = useState(false)
-  let auth = useContext(AuthContext)
+  const { updatePassword } = useContext(AuthContext)
 
   function checkPassword(pass) {
     setPassword({
@@ -35,14 +37,14 @@ export function PasswordReset() {
 
   function handleSubmit() {
     setLoading(true)
-    auth.updatePassword(uuid, password.pass)
-    .then(updated => {
-      if (updated[0]) {
-        navigate("/")
-      } else {
-        console.log(updated[1])
-      }
-    })
+    updatePassword(params.uuid, password.pass)
+      .then(updated => {
+        if (updated[0]) {
+          router.push("/")
+        } else {
+          console.log(updated[1])
+        }
+      })
   }
 
   return (

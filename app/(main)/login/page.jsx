@@ -71,7 +71,7 @@ export default function Login() {
           Puedes registrarte haciendo click <a onClick={() => router.push("/register")}>aquí</a>
         </span>
         <span className="text-link">
-          <a onClick={() => navigate("/password_recovery")}>Recuperar contraseña</a>
+          <a onClick={() => router.push("/password_recovery")}>Recuperar contraseña</a>
         </span>
       </motion.div>
     </div>
