@@ -5,6 +5,10 @@ export const CalendarEvent = {
         headers: {
           'Accept': '*/*',
           'Content-Type': 'application/json'
+        },
+        cache: 'no-store',
+        next: {
+          revalidate: 0
         }
       })
       return await res.json()
