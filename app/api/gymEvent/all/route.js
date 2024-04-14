@@ -1,4 +1,6 @@
 import { GymEvent } from "@/models/gymEvent"
+import { revalidatePath } from 'next/cache'
+revalidatePath('/gym_calendar')
 
 export async function GET(request) {
   try {

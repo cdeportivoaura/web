@@ -1,4 +1,6 @@
 import { Event } from "@/models/event"
+import { revalidatePath } from 'next/cache'
+revalidatePath('/calendar')
 
 export async function GET(request) {
   try {
