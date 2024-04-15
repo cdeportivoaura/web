@@ -1,7 +1,7 @@
 export const CalendarEvent = {
-  async getAll() {
+  async getAll(date) {
     try {
-      const res = await fetch("/api/event/all", {
+      const res = await fetch(`/api/event/all?date=${date}`, {
         headers: {
           'Accept': '*/*',
           'Content-Type': 'application/json'

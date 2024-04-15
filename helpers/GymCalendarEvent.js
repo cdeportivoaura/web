@@ -1,7 +1,7 @@
 export const GymCalendarEvent = {
-  async getAll() {
+  async getAll(date) {
     try {
-      const res = await fetch("/api/gymEvent/all", {
+      const res = await fetch(`/api/gymEvent/all?date=${date}`, {
         headers: {
           'Accept': '*/*',
           'Content-Type': 'application/json'

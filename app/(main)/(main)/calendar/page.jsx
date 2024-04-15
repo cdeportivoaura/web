@@ -16,6 +16,7 @@ import { CalendarEvent } from '@/helpers/CalendarEvent'
 import '@/app/components/Event/Calendar.scss'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import next from 'next'
 
 
 export default function Page() {
@@ -36,17 +37,18 @@ function Calendar() {
   const [newEventModalIsOpen, setNewEventModalIsOpen] = useState(false)
   const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
   const [temporalInfo, setTemporalInfo] = useState({})
+  const [currentDate, setCurrentDate] = useState(date ? new Date(date) : new Date())
 
   const fullcalendar = useRef(null)
   const { language } = useContext(ThemeContext)
   const { user, isTokenValid, isUserLoggedIn } = useContext(AuthContext)
 
   useEffect(() => {
-    CalendarEvent.getAll()
+    CalendarEvent.getAll(currentDate.toLocaleDateString())
       .then(res => {
         setCurrentEvents(res.results)
       })
-  }, [])
+  }, [currentDate])
 
   useEffect(() => {
     let selectedDate = date ?? new Date()
@@ -128,6 +130,24 @@ function Calendar() {
   function viewChange(event) {
   }
 
+  function nextDate() {
+    let calendar = fullcalendar.current.getApi()
+    calendar.next()
+    setCurrentDate(calendar.getDate())
+  }
+
+  function prevDate() {
+    let calendar = fullcalendar.current.getApi()
+    calendar.prev()
+    setCurrentDate(calendar.getDate())
+  }
+
+  function goToday() {
+    let calendar = fullcalendar.current.getApi()
+    calendar.today()
+    setCurrentDate(calendar.getDate())
+  }
+
   return (
     <div className='calendar'>
       <FullCalendar
@@ -135,9 +155,14 @@ function Calendar() {
         height={"100%"}
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         headerToolbar={{
-          left: 'prevYear,prev,next,nextYear today',
+          left: 'prev,next today',
           center: 'title',
           right: 'dayGridMonth,timeGridWeek'
+        }}
+        customButtons={{
+          prev: { click: prevDate },
+          next: { click: nextDate },
+          today: { text: "Hoy", click: goToday }
         }}
         locales={[esLocale]}
         allDaySlot={false}
