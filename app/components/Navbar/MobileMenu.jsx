@@ -8,6 +8,7 @@ import { ThemeContext } from '../Theme/ThemeProvider'
 import './Navbar.scss'
 import Logo from '../Logo/Logo'
 import Link from 'next/link'
+import { InstagramIcon } from '../Logo/InstagramIcons'
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -148,6 +149,20 @@ export default function MobileMenu({ links }) {
                   <div className="link-text">
                     <span className="material-icons link-icon">{(theme === "dark") ? "light_mode" : "dark_mode"}</span>
                     <span className="link-label">{(theme === "dark") ? "Modo claro" : "Modo oscuro"}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </motion.li>
+          <motion.li
+            variants={itemVariants}
+          >
+            <a target='_blank' href="https://www.instagram.com/deportivoaura/">
+              <div className="navbar-link">
+                <div className="top-link">
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <InstagramIcon />
+                    <span className="link-label">Instagram</span>
                   </div>
                 </div>
               </div>

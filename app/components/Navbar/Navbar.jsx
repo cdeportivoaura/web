@@ -6,6 +6,7 @@ import Settings from './Settings/Settings'
 import { AuthContext } from '../Auth/AuthProvider'
 import Link from 'next/link'
 import './Navbar.scss'
+import { InstagramIcon } from '../Logo/InstagramIcons'
 
 export default function Navbar({ links }) {
   const pathname = usePathname()
@@ -83,6 +84,9 @@ export default function Navbar({ links }) {
         {navLinks}
         <Settings />
       </div>
+      <a className='instagram-link' target='_blank' href="https://www.instagram.com/deportivoaura/">
+        <InstagramIcon />
+      </a>
     </nav>
   );
 }

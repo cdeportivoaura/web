@@ -3,12 +3,26 @@
   position: relative;
   z-index: 10;
   display: flex;
-  justify-content: space-around;
   font-family: var(--font-family);
   top: 0;
   left: 0;
   width: 100%;
   background-color: var(--navbar-bg-color);
+
+  .instagram-link {
+    display: flex;
+    flex-direction: column-reverse;
+    color: var(--text-color-faded);
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--accent);
+    }
+
+    svg {
+      margin: 0 10px 7px 3px;
+    }
+  }
 
   .nav-btn {
     padding-top: 0;
@@ -25,7 +39,7 @@
 
   .left {
     text-align: left;
-    width: 30%;
+    flex-shrink: 0;
 
     .navbar-link {
       position: relative;
@@ -44,7 +58,7 @@
 
   .right {
     text-align: right;
-    width: 61%;
+    flex-grow: 1;
 
     >.settings {
       color: var(--text-color-faded);

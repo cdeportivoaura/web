@@ -15,8 +15,8 @@ export default function Layout({ children }) {
 
   let links = [
     { name: "Inicio", to: "/", icon: "home", permissionRequired: "None" },
-    { name: "Reserva multicancha", to: "/calendar", icon: "calendar_month", permissionRequired: "None" },
-    { name: "Reserva gimnasio", to: "/gym_calendar", icon: "calendar_month", permissionRequired: "None" },
+    { name: "Multicancha", to: "/calendar", icon: "calendar_month", permissionRequired: "None" },
+    { name: "Gimnasios", to: "/gym_calendar", icon: "calendar_month", permissionRequired: "None" },
     // { name: "Deportes", to: "/sports", icon: "sports", permissionRequired: "None" },
     // { name: "Perfil", to: "/profile", icon: "face", permissionRequired: "User" },
     // { name: "Users", to: "/users", icon: "group", permissionRequired: "Staff" },
