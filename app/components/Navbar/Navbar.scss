@@ -1,12 +1,13 @@
 .navbar {
-  flex: 0 1 auto;
+  // flex: 0 1 auto;
   position: relative;
   z-index: 10;
   display: flex;
   font-family: var(--font-family);
   top: 0;
   left: 0;
-  width: 100%;
+  // width: 100%;
+  padding: 0 10px;
   background-color: var(--navbar-bg-color);
 
   .instagram-link {
@@ -20,7 +21,7 @@
     }
 
     svg {
-      margin: 0 10px 7px 3px;
+      margin: 0 0 7px 3px;
     }
   }
 
