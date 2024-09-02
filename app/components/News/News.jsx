@@ -14,7 +14,8 @@ export function News() {
       headers: {
         'Accept': '*/*',
         'Content-Type': 'application/json'
-      }
+      },
+      cache: "no-store"
     })
       .then(res => res.json())
       .then(data => setNews(data.results))
